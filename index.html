@@ -4,27 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaunain N</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .intro {
+            padding: 2rem;
+            text-align: center;
+        }
+        .intro h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .intro p {
+            font-size: 1.2rem;
+        }
+        .app-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 2rem;
+            background-color: #fff;
+        }
+        .app-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .app-card:hover {
+            transform: translateY(-10px);
+        }
+        .app-card img {
+            max-width: 100%;
+            border-bottom: 1px solid #ddd;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .app-card h3 {
+            margin: 1rem 0;
+        }
+        .app-card p {
+            padding: 0 1rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .app-card a {
+            display: inline-block;
+            margin: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .app-card a:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Kaunain N</h1>
-        <p>Welcome to my personal website!</p>
     </header>
     <section class="intro">
-        <h2>About Me</h2>
-        <p>Hello! I'm Kaunain N, a passionate developer with expertise in creating engaging and dynamic applications. I love coding and exploring new technologies.</p>
+        <h1>Welcome to My App Portfolio</h1>
+        <p>Explore my latest applications available on the Play Store.</p>
     </section>
-    <section class="gallery">
-        <h2>Gallery</h2>
-        <div class="images">
-            <img src="https://via.placeholder.com/300" alt="Sample Image 1">
-            <img src="https://via.placeholder.com/300" alt="Sample Image 2">
-            <img src="https://via.placeholder.com/300" alt="Sample Image 3">
+    <section class="app-section">
+        <div class="app-card">
+            <img src="app1-image-url" alt="App 1">
+            <h3>App Name 1</h3>
+            <p>Short description of App 1.</p>
+            <a href="https://play.google.com/store/apps/details?id=your_app_id_1" target="_blank">View on Play Store</a>
+        </div>
+        <div class="app-card">
+            <img src="app2-image-url" alt="App 2">
+            <h3>App Name 2</h3>
+            <p>Short description of App 2.</p>
+            <a href="https://play.google.com/store/apps/details?id=your_app_id_2" target="_blank">View on Play Store</a>
+        </div>
+        <div class="app-card">
+            <img src="app3-image-url" alt="App 3">
+            <h3>App Name 3</h3>
+            <p>Short description of App 3.</p>
+            <a href="https://play.google.com/store/apps/details?id=your_app_id_3" target="_blank">View on Play Store</a>
         </div>
     </section>
-    <footer>
-        <p>&copy; 2024 Kaunain N. All rights reserved.</p>
-    </footer>
 </body>
 </html>
