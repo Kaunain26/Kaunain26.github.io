@@ -4,6 +4,7 @@
 #M_Entries
 profitsence.com, 24055, DIRECT
 
+google.com, pub-4557310075361157, DIRECT, f08c47fec0942fa0
 
 #D_Entries
 #profitsence-google
