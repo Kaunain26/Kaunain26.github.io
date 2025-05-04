@@ -222,9 +222,16 @@ opacity: 0;
   max-width: 100%;
   padding: 10px;
   scroll-snap-type: x mandatory;
-  justify-content: center;
+  justify-content: flex-start;
+  scroll-behavior: smooth;
 }
 
+@media (min-width: 768px) { /* For larger screens like tablets and desktops */
+  .screenshot-container {
+    justify-content: center; /* Center align for larger screens */
+  }
+}
+        
 .screenshot-wrapper {
   scroll-snap-align: start;
   position: relative;
