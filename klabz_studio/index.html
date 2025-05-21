@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KLabz Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        body {
+          font-family: 'Inter', sans-serif;
+          background: linear-gradient(135deg, #f0f4f8, #e0f7fa);
+          color: #333;
+          min-height: 100vh;
+          overflow-x: hidden;
+        }
+
+        header {
+          background: linear-gradient(to right, #43cea2, #185a9d);
+          color: white;
+          padding: 2rem 1rem;
+          text-align: center;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          animation: fadeSlideDown 1s ease-out;
+        }
+
+#popup {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.6);
+          display: none;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+        }
+
+        .popup-content {
+          background-color: #fff;
+          padding: 2rem;
+          border-radius: 12px;
+          text-align: center;
+          max-width: 400px;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+          animation: scaleIn 0.4s ease-out;
+          position: relative;
+        }
+
+        .popup-content img {
+          width: 100%;
+          border-radius: 10px;
+          margin-bottom: 1rem;
+        }
+
+        .popup-content h2 {
+          font-size: 1.5rem;
+          color: #2e7d32;
+        }
+
+        .popup-content a {
+          background-color: #2e7d32;
+          color: white;
+          text-decoration: none;
+          padding: 0.7rem 1.3rem;
+          border-radius: 6px;
+          display: inline-block;
+          margin-top: 1rem;
+          font-weight: 600;
+          animation: pulse 1.8s infinite;
+        }
+
+        .popup-content a:hover {
+          background-color: #1b5e20;
+        }
+
+        .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 14px;
+          font-size: 24px;
+          cursor: pointer;
+          color: #999;
+          transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+          color: #000;
+        }
+
+ @keyframes scaleIn {
+          from {
+            transform: scale(0.8);
+            opacity: 0;
+          }
+          to {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        @keyframes fadeSlideDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        nav {
+          background-color: white;
+          padding: 1rem;
+          text-align: center;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        nav a {
+          margin: 0 1rem;
+          text-decoration: none;
+          color: #2e7d32;
+          font-weight: 600;
+        }
+
+        nav a:hover {
+          color: #1b5e20;
+        }
+
+        .apps-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 3rem 1rem;
+          gap: 2rem;
+        }
+
+        .app-card {
+          background: white;
+          border-radius: 16px;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+          width: 300px;
+          padding: 1.8rem 1.5rem;
+          text-align: center;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+          animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+          from {opacity: 0; transform: scale(0.95);}
+          to {opacity: 1; transform: scale(1);}
+        }
+
+        .app-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+        }
+
+        .app-card img {
+          width: 100%;
+          border-radius: 12px;
+          margin-bottom: 1rem;
+        }
+
+        .app-card h3 {
+          margin: 0.5rem 0;
+          color: #2e7d32;
+          font-size: 1.25rem;
+          font-weight: 600;
+        }
+
+        .app-card p {
+          font-size: 0.95rem;
+          color: #555;
+          margin-bottom: 1rem;
+        }
+
+        .app-card a {
+          padding: 0.65rem 1.4rem;
+          background-color: #2e7d32;
+          color: white;
+          text-decoration: none;
+          border-radius: 8px;
+          font-weight: 600;
+          transition: background-color 0.3s ease;
+        }
+
+        .app-card a:hover {
+          background-color: #1b5e20;
+        }
+
+        .contact-section {
+          background: #fff;
+          padding: 3rem 1rem;
+          text-align: center;
+          animation: fadeIn 1.2s ease;
+        }
+
+        .contact-section h2 {
+          color: #185a9d;
+          margin-bottom: 1rem;
+        }
+
+        form {
+          max-width: 500px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        input, textarea {
+          padding: 0.8rem;
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          font-size: 1rem;
+        }
+
+        button {
+          background-color: #2e7d32;
+          color: white;
+          border: none;
+          padding: 0.8rem;
+          border-radius: 8px;
+          font-size: 1rem;
+          font-weight: bold;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+          background-color: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+<header style="text-align: center;">
+    <h1 style="margin-bottom: 0.5rem;">KLabz Studio</h1>
+    <h3 style="margin-bottom: 0.5rem;">The Simple Way To Save Social Media Content</h3>
+    <p style="margin-bottom: 1rem;">InSave Story Saver - video downloader. Enjoy anonymous story watching.</p>
+</header>
+<nav>
+    <a href="#apps">Our Apps</a>
+    <a href="#contact">Contact Us</a>
+</nav>
+
+<div class="apps-container" id="apps">
+    <div class="app-card">
+        <img src="https://play-lh.googleusercontent.com/rYwgX_7J0NDgvQR_JR4k2wDK8WcRfAPlM_3dr-baE7RQDJIie9H6xAOuuaCEiTpX9P6b=w480-h960-rw"
+             alt="InSave">
+        <h3>InSave</h3>
+        <p>Download Posts, Videos, Stories. 100K+ Downloads. Fastest Media Saver for Instagram.</p>
+        <a href="https://play.google.com/store/apps/details?id=in.k_nesar.vinsta" target="_blank">View on Play
+            Store</a>
+    </div>
+
+    <div class="app-card">
+        <img src="https://play-lh.googleusercontent.com/2LIwx9Kf6HvAAVvUt_B91po2R_7lHPRVJr_XL2QNc_cuqZnJxUAPZ1rHMjzhJaAoshxk=s512-rw" alt="App 2">
+        <h3>Play Beat - Music player</h3>
+        <p>A Beautiful Designed Music Player with ton of featues.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.knesarcreation.playbeat" target="_blank">View on Play Store</a>
+    </div>
+    <div class="app-card">
+        <img src="https://play-lh.googleusercontent.com/pYxdeG6rJh2NymhKrIufGtXbhVMpE-onDftIINhxkpawkjVqnma8AtbHQCYAoZK5wA=w480-h960-rw" alt="App 3">
+        <h3>Read deleted WA messages</h3>
+        <p>Never miss a single notification with fantastic features in the NotiSaver.</p>
+        <a href="https://play.google.com/store/apps/details?id=k_nesar.notification.notificationhistory.deletedmsg.savenotifications" target="_blank">View on Play Store</a>
+    </div>
+
+</div>
+
+
+<div class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <p style="margin-bottom: 1.5rem;">If you have any questions, feel free to reach out!</p>
+
+    <form action="https://formspree.io/f/mkgrnlrl" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <input type="hidden" name="_subject" value="New message from KLabz Studio" />
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div style="margin-top: 2rem; text-align: center;">
+        <a href="https://wa.me/919038427950" target="_blank"
+           style="display: inline-flex; align-items: center; gap: 10px; padding: 0.8rem 1.6rem;
+                background-color: #25D366; color: white; font-size: 1rem; font-weight: 600;
+                border-radius: 999px; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                transition: all 0.3s ease;">
+            <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp"
+                 style="width: 20px; height: 20px;" />
+            Message us on WhatsApp
+        </a>
+    </div>
+</div>
+
+
+<!-- Popup (same) -->
+<div id="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <img src="https://github.com/Kaunain26/Kaunain26.github.io/blob/main/banners/Watch_stories_anonymous.png?raw=true" alt="InSave"/>
+        <h2>🚀 Download insta stories anonymously</h2>
+        <p>Download videos, posts, stories, highlights from Instagram in just one tap. It’s fast, secure, and has 100K+ downloads!</p>
+        <a href="https://play.google.com/store/apps/details?id=in.k_nesar.vinsta" target="_blank">Download App Now</a>
+    </div>
+</div>
+
+<script>
+    window.onload = function () {
+      setTimeout(() => {
+        document.getElementById('popup').style.display = 'flex';
+      }, 0);
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+</script>
+</body>
+</html>
